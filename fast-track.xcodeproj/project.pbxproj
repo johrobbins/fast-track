@@ -13,6 +13,7 @@
 		FF54C4AC248E3C2F00A32400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF54C4AB248E3C2F00A32400 /* Assets.xcassets */; };
 		FF54C4AF248E3C2F00A32400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF54C4AD248E3C2F00A32400 /* LaunchScreen.storyboard */; };
 		FF54C4C4248E467500A32400 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C4C3248E467500A32400 /* Parcel.swift */; };
+		FF54C4C6248E578A00A32400 /* ParcelListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C4C5248E578A00A32400 /* ParcelListTableTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FF54C4AE248E3C2F00A32400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF54C4B0248E3C2F00A32400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF54C4C3248E467500A32400 /* Parcel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
+		FF54C4C5248E578A00A32400 /* ParcelListTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelListTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		FF54C4C2248E439B00A32400 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF54C4C5248E578A00A32400 /* ParcelListTableTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF54C4C4248E467500A32400 /* Parcel.swift in Sources */,
+				FF54C4C6248E578A00A32400 /* ParcelListTableTableViewController.swift in Sources */,
 				FF54C4A3248E3C2A00A32400 /* AppDelegate.swift in Sources */,
 				FF54C4A5248E3C2A00A32400 /* SceneDelegate.swift in Sources */,
 			);
