@@ -74,6 +74,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="WhX-5b-eOU"/>
+                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="LQf-jD-WoL"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -97,6 +98,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="nPe-ky-Zrn"/>
+                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="TZc-Sx-eLQ"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -124,6 +126,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="kzv-e9-lq3"/>
+                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="fRg-UJ-eZ8"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -141,18 +144,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Status Last Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzk-36-QkU">
-                                                    <rect key="frame" x="20" y="11" width="155" height="21.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Last Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzk-36-QkU">
+                                                    <rect key="frame" x="20" y="11" width="98.5" height="21.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="--/--/--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Szg-qM-CW9">
-                                                    <rect key="frame" x="334.5" y="11" width="59.5" height="21.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="dd/mm/yy, --:-- --" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Szg-qM-CW9">
+                                                    <rect key="frame" x="251" y="11" width="143" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -166,7 +169,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MGp-Un-kxu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                                    <rect key="frame" x="-1" y="0.0" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="statusLastUpdateDatePickerChanged:" destination="deV-De-Uiv" eventType="primaryActionTriggered" id="8Uj-72-urS"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -191,6 +197,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="OWb-Hx-Zik"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -214,31 +223,34 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="--/--/--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69L-hx-ISB">
-                                                    <rect key="frame" x="334.5" y="11" width="59.5" height="21.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="dd/mm/yy, --:-- --" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69L-hx-ISB">
+                                                    <rect key="frame" x="251" y="11" width="143" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="212" id="NGK-yQ-gjx" userLabel="DeliveryDatePickerCell">
-                                        <rect key="frame" x="0.0" y="472" width="414" height="212"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="NGK-yQ-gjx" userLabel="DeliveryDatePickerCell">
+                                        <rect key="frame" x="0.0" y="472" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NGK-yQ-gjx" id="rwj-rA-Eun">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="212"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QBL-Vm-bA6">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="deliveryDatePickerChanged:" destination="deV-De-Uiv" eventType="primaryActionTriggered" id="W28-VL-PgN"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QBL-Vm-bA6" firstAttribute="leading" secondItem="rwj-rA-Eun" secondAttribute="leading" id="27f-zA-i3h"/>
-                                                <constraint firstAttribute="trailing" secondItem="QBL-Vm-bA6" secondAttribute="trailing" id="kxi-O4-1uq"/>
-                                                <constraint firstItem="QBL-Vm-bA6" firstAttribute="top" secondItem="rwj-rA-Eun" secondAttribute="top" id="nNx-zz-JcF"/>
+                                                <constraint firstItem="QBL-Vm-bA6" firstAttribute="top" secondItem="rwj-rA-Eun" secondAttribute="topMargin" constant="-11" id="Ath-BM-f2E"/>
+                                                <constraint firstItem="QBL-Vm-bA6" firstAttribute="leading" secondItem="rwj-rA-Eun" secondAttribute="leadingMargin" constant="-20" id="BNQ-Ab-BbZ"/>
+                                                <constraint firstItem="QBL-Vm-bA6" firstAttribute="centerX" secondItem="rwj-rA-Eun" secondAttribute="centerX" id="Kat-s5-bzZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -247,7 +259,7 @@
                             <tableViewSection headerTitle="Notes" id="O2H-4w-ZFN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="qTV-9m-wdd" userLabel="NotesCell">
-                                        <rect key="frame" x="0.0" y="740" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="571" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qTV-9m-wdd" id="wNa-39-fug">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -291,15 +303,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="deliveryDateDatePicker" destination="QBL-Vm-bA6" id="hIA-Ri-mGr"/>
                         <outlet property="deliveryDateLabel" destination="69L-hx-ISB" id="sHG-uj-SW5"/>
+                        <outlet property="deliveryDatePicker" destination="QBL-Vm-bA6" id="hIA-Ri-mGr"/>
                         <outlet property="notesTextView" destination="a8t-HN-p9x" id="9qp-Rj-yFO"/>
-                        <outlet property="parcelStatusLastUpdateDatePicker" destination="MGp-Un-kxu" id="D34-wf-h3R"/>
-                        <outlet property="parcelStatusLastUpdateLabel" destination="Szg-qM-CW9" id="KUT-xG-inb"/>
-                        <outlet property="parcelStatusTextField" destination="TrO-h9-ECz" id="DSD-Bh-9YV"/>
                         <outlet property="recipientAddressTextField" destination="JHV-Rv-DlU" id="Mxs-I4-AxS"/>
                         <outlet property="recipientNameTextField" destination="mwP-wI-QSX" id="TW4-lo-UGN"/>
                         <outlet property="saveButton" destination="i52-Tk-W3j" id="0g2-Y6-weP"/>
+                        <outlet property="statusLastUpdateDatePicker" destination="MGp-Un-kxu" id="D34-wf-h3R"/>
+                        <outlet property="statusLastUpdateLabel" destination="Szg-qM-CW9" id="KUT-xG-inb"/>
+                        <outlet property="statusTextField" destination="TrO-h9-ECz" id="DSD-Bh-9YV"/>
                         <outlet property="trackingNumberTextField" destination="hrF-17-sbD" id="33v-g4-boy"/>
                     </connections>
                 </tableViewController>

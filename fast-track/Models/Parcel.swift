@@ -39,6 +39,12 @@ struct Parcel: Codable {
 
     return [parcel1, parcel2]
   }
+
+  static let dateFormatter: DateFormatter  = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yy, hh:mm a"
+    return formatter
+  }()
 }
 
 enum DeliveryStatus: String, Codable {
