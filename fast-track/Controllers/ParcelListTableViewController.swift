@@ -5,7 +5,7 @@
 
 import UIKit
 
-class ParcelListTableTableViewController: UITableViewController {
+class ParcelListTableViewController: UITableViewController {
   private var parcels = [Parcel]()
 
   override func viewDidLoad() {

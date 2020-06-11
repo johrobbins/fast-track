@@ -9,7 +9,7 @@
         <!--Parcels-->
         <scene sceneID="0MX-3O-jmb">
             <objects>
-                <tableViewController id="Ky3-PH-KX5" customClass="ParcelListTableTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ky3-PH-KX5" customClass="ParcelListTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Efj-B0-6P9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
         <!--Add Parcel-->
         <scene sceneID="bsb-Nq-T08">
             <objects>
-                <tableViewController id="deV-De-Uiv" sceneMemberID="viewController">
+                <tableViewController id="deV-De-Uiv" customClass="ParcelDetailsTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="X3i-QI-Vgv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,6 +72,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="WhX-5b-eOU"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -92,6 +95,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="nPe-ky-Zrn"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -112,10 +118,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipient Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-h9-ECz">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-h9-ECz">
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="kzv-e9-lq3"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -281,6 +290,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deliveryDateDatePicker" destination="QBL-Vm-bA6" id="hIA-Ri-mGr"/>
+                        <outlet property="deliveryDateLabel" destination="69L-hx-ISB" id="sHG-uj-SW5"/>
+                        <outlet property="notesTextView" destination="a8t-HN-p9x" id="9qp-Rj-yFO"/>
+                        <outlet property="parcelStatusLastUpdateDatePicker" destination="MGp-Un-kxu" id="D34-wf-h3R"/>
+                        <outlet property="parcelStatusLastUpdateLabel" destination="Szg-qM-CW9" id="KUT-xG-inb"/>
+                        <outlet property="parcelStatusTextField" destination="TrO-h9-ECz" id="DSD-Bh-9YV"/>
+                        <outlet property="recipientAddressTextField" destination="JHV-Rv-DlU" id="Mxs-I4-AxS"/>
+                        <outlet property="recipientNameTextField" destination="mwP-wI-QSX" id="TW4-lo-UGN"/>
+                        <outlet property="saveButton" destination="i52-Tk-W3j" id="0g2-Y6-weP"/>
+                        <outlet property="trackingNumberTextField" destination="hrF-17-sbD" id="33v-g4-boy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8y-hb-y8F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="byM-ME-jez" userLabel="Exit" sceneMemberID="exit"/>
