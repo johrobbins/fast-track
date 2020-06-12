@@ -53,7 +53,7 @@
         <!--Add Parcel-->
         <scene sceneID="bsb-Nq-T08">
             <objects>
-                <tableViewController id="deV-De-Uiv" customClass="ParcelDetailsTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="deV-De-Uiv" customClass="ParcelDetailTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="X3i-QI-Vgv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,9 +268,8 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a8t-HN-p9x">
                                                     <rect key="frame" x="20" y="11" width="374" height="178"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -293,12 +292,12 @@
                     <navigationItem key="navigationItem" title="Add Parcel" largeTitleDisplayMode="never" id="QFF-t5-pD6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wgJ-xT-Ryc">
                             <connections>
-                                <segue destination="byM-ME-jez" kind="unwind" unwindAction="unwindToParcelListWithSegue:" id="bQZ-Lc-bru"/>
+                                <segue destination="byM-ME-jez" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToParcelListWithSegue:" id="uPn-U3-GXe"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="i52-Tk-W3j">
                             <connections>
-                                <segue destination="byM-ME-jez" kind="unwind" identifier="saveUnwind" unwindAction="unwindToParcelListWithSegue:" id="3dw-wu-APr"/>
+                                <segue destination="byM-ME-jez" kind="unwind" identifier="saveUnwind" unwindAction="unwindToParcelListWithSegue:" id="scs-PW-htD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

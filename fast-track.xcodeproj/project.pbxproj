@@ -14,7 +14,7 @@
 		FF54C4AF248E3C2F00A32400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF54C4AD248E3C2F00A32400 /* LaunchScreen.storyboard */; };
 		FF54C4C4248E467500A32400 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C4C3248E467500A32400 /* Parcel.swift */; };
 		FF54C4C6248E578A00A32400 /* ParcelListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C4C5248E578A00A32400 /* ParcelListTableViewController.swift */; };
-		FFDB69D224923B2B009EB36F /* ParcelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDB69D124923B2B009EB36F /* ParcelDetailsTableViewController.swift */; };
+		FFDB69D224923B2B009EB36F /* ParcelDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDB69D124923B2B009EB36F /* ParcelDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		FF54C4B0248E3C2F00A32400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF54C4C3248E467500A32400 /* Parcel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		FF54C4C5248E578A00A32400 /* ParcelListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelListTableViewController.swift; sourceTree = "<group>"; };
-		FFDB69D124923B2B009EB36F /* ParcelDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsTableViewController.swift; sourceTree = "<group>"; };
+		FFDB69D124923B2B009EB36F /* ParcelDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				FF54C4C5248E578A00A32400 /* ParcelListTableViewController.swift */,
-				FFDB69D124923B2B009EB36F /* ParcelDetailsTableViewController.swift */,
+				FFDB69D124923B2B009EB36F /* ParcelDetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 				FF54C4C6248E578A00A32400 /* ParcelListTableViewController.swift in Sources */,
 				FF54C4A3248E3C2A00A32400 /* AppDelegate.swift in Sources */,
 				FF54C4A5248E3C2A00A32400 /* SceneDelegate.swift in Sources */,
-				FFDB69D224923B2B009EB36F /* ParcelDetailsTableViewController.swift in Sources */,
+				FFDB69D224923B2B009EB36F /* ParcelDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

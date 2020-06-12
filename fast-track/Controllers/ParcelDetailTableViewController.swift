@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParcelDetailsTableViewController: UITableViewController {
+class ParcelDetailTableViewController: UITableViewController {
   // Navigation
   @IBOutlet private var saveButton: UIBarButtonItem!
 
@@ -29,10 +29,14 @@ class ParcelDetailsTableViewController: UITableViewController {
   // Notes
   @IBOutlet private var notesTextView: UITextView!
 
+  var parcel: Parcel?
+
+  private var statusLastUpdate: Date?
   private var isStatusLastUpdateDatePickerHidden = true
   private let statusLastUpdateLabelIndexPath = IndexPath(row: 1, section: 1)
   private let statusLastUpdateDatePickerIndexPath = IndexPath(row: 2, section: 1)
 
+  private var deliveryDate: Date?
   private var isDeliveryDatePickerHidden = true
   private let deliveryDateLabelIndexPath = IndexPath(row: 1, section: 2)
   private let deliveryDatePickerIndexPath = IndexPath(row: 2, section: 2)
@@ -58,10 +62,14 @@ class ParcelDetailsTableViewController: UITableViewController {
 
   @IBAction func statusLastUpdateDatePickerChanged(_ sender: UIDatePicker) {
     updateDatePickerLabel(label: statusLastUpdateLabel, date: statusLastUpdateDatePicker.date)
+    statusLastUpdate = statusLastUpdateDatePicker.date
+    updateSaveButtonState()
   }
 
   @IBAction func deliveryDatePickerChanged(_ sender: UIDatePicker) {
     updateDatePickerLabel(label: deliveryDateLabel, date: deliveryDatePicker.date)
+    deliveryDate = deliveryDatePicker.date
+    updateSaveButtonState()
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,12 +102,28 @@ class ParcelDetailsTableViewController: UITableViewController {
     }
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+
+    guard segue.identifier == "saveUnwind" else { return }
+
+    parcel = Parcel(
+      recipientName: recipientNameTextField.text!,
+      deliveryAddress: recipientAddressTextField.text!,
+      status: statusTextField.text!,
+      statusLastUpdate: statusLastUpdate!,
+      tackingNumber: trackingNumberTextField.text,
+      deliveryDateAndTime: deliveryDate,
+      notes: notesTextView.text)
+  }
+
   private func updateSaveButtonState() {
     let recipientName = recipientNameTextField.text ?? ""
     let recipientAddress = recipientAddressTextField.text ?? ""
     let parcelStatus = statusTextField.text ?? ""
+    let statusLastUpdateIsEmpty = statusLastUpdate == nil ? false : true
 
-    saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty
+    saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty && statusLastUpdateIsEmpty
   }
 
   private func updateDatePickerLabel(label: UILabel, date: Date) {

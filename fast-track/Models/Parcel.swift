@@ -6,13 +6,13 @@
 import Foundation
 
 struct Parcel: Codable {
-  var tackingNumber: String
   var recipientName: String
   var deliveryAddress: String
-  var deliveryDateAndTime: Date
-  var status: DeliveryStatus
+  var status: String
   var statusLastUpdate: Date
-  var notes: String
+  var tackingNumber: String?
+  var deliveryDateAndTime: Date?
+  var notes: String?
 
   static func loadParcels() -> [Parcel]? {
     return nil
@@ -20,22 +20,22 @@ struct Parcel: Codable {
 
   static func loadSampleParcels() -> [Parcel] {
     let parcel1 = Parcel(
-      tackingNumber: "FT123",
       recipientName: "John Smith",
       deliveryAddress: "37 Main Street, Norwood, SA",
-      deliveryDateAndTime: Date(),
-      status: DeliveryStatus.onRoute,
+      status: "On Route",
       statusLastUpdate: Date(),
+      tackingNumber: "FT123",
+      deliveryDateAndTime: Date(),
       notes: "Leave behind side gate")
 
     let parcel2 = Parcel(
-    tackingNumber: "FT234",
-    recipientName: "Mike Jones",
-    deliveryAddress: "88 George Street, Gold Coast, QLD",
-    deliveryDateAndTime: Date(),
-    status: DeliveryStatus.delivered,
-    statusLastUpdate: Date(),
-    notes: "")
+      recipientName: "Mike Jones",
+      deliveryAddress: "88 George Street, Gold Coast, QLD",
+      status: "Delivered",
+      statusLastUpdate: Date(),
+      tackingNumber: "FT234",
+      deliveryDateAndTime: Date(),
+      notes: "")
 
     return [parcel1, parcel2]
   }
@@ -47,8 +47,8 @@ struct Parcel: Codable {
   }()
 }
 
-enum DeliveryStatus: String, Codable {
-  case delivered
-  case onRoute
-  case none
-}
+//enum DeliveryStatus: String, Codable {
+//  case delivered
+//  case onRoute
+//  case none
+//}

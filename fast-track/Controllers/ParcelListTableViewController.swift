@@ -87,6 +87,13 @@ class ParcelListTableViewController: UITableViewController {
 
   // MARK: - IBActions
   @IBAction func unwindToParcelList(segue: UIStoryboardSegue) {
+    guard segue.identifier == "saveUnwind" else { return }
+    let sourceViewController = segue.source as! ParcelDetailTableViewController
 
+    if let parcel = sourceViewController.parcel {
+      let newIndexPath =  IndexPath(row: parcels.count, section: 0)
+      parcels.append(parcel)
+      tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
   }
 }
