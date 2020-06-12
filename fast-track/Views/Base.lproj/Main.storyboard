@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParcelCellIdentifier" textLabel="FZQ-gB-NaN" style="IBUITableViewCellStyleDefault" id="Ra0-9r-nRd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParcelCell" textLabel="FZQ-gB-NaN" style="IBUITableViewCellStyleDefault" id="Ra0-9r-nRd" userLabel="ParcelCell">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ra0-9r-nRd" id="7eF-eN-SBJ">
@@ -31,6 +31,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bbJ-ge-4o4" kind="presentation" identifier="EditParcel" modalPresentationStyle="fullScreen" id="p7i-of-Aw8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -41,7 +44,7 @@
                     <navigationItem key="navigationItem" title="Parcels" id="DDH-dZ-flq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c0Y-If-KPb">
                             <connections>
-                                <segue destination="bbJ-ge-4o4" kind="presentation" modalPresentationStyle="fullScreen" id="5xe-lP-hLM"/>
+                                <segue destination="bbJ-ge-4o4" kind="presentation" identifier="AddParcel" modalPresentationStyle="fullScreen" id="5xe-lP-hLM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -352,4 +355,7 @@
             <point key="canvasLocation" x="-1443" y="692"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="p7i-of-Aw8"/>
+    </inferredMetricsTieBreakers>
 </document>

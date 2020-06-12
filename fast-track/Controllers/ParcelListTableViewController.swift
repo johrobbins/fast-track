@@ -39,7 +39,7 @@ class ParcelListTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ParcelCellIdentifier", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ParcelCell", for: indexPath)
 
     let parcel = parcels[indexPath.row]
     cell.textLabel?.text = parcel.recipientName
@@ -84,6 +84,17 @@ class ParcelListTableViewController: UITableViewController {
       // Pass the selected object to the new view controller.
   }
   */
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "EditParcel",
+    let navController = segue.destination as? UINavigationController,
+    let parcelDetailViewController = navController.topViewController as?
+      ParcelDetailTableViewController {
+      let indexPath = tableView.indexPathForSelectedRow!
+      let selectedParcel = parcels[indexPath.row]
+      parcelDetailViewController.parcel = selectedParcel
+    }
+  }
 
   // MARK: - IBActions
   @IBAction func unwindToParcelList(segue: UIStoryboardSegue) {
