@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="-524" y="692"/>
         </scene>
-        <!--Add Parcel-->
+        <!--New Parcel-->
         <scene sceneID="bsb-Nq-T08">
             <objects>
                 <tableViewController id="deV-De-Uiv" customClass="ParcelDetailTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +172,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MGp-Un-kxu">
-                                                    <rect key="frame" x="-1" y="0.0" width="414" height="216"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                                     <connections>
                                                         <action selector="statusLastUpdateDatePickerChanged:" destination="deV-De-Uiv" eventType="primaryActionTriggered" id="8Uj-72-urS"/>
                                                     </connections>
@@ -292,13 +292,8 @@
                             <outlet property="delegate" destination="deV-De-Uiv" id="wu0-Q1-oxr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Parcel" largeTitleDisplayMode="never" id="QFF-t5-pD6">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wgJ-xT-Ryc">
-                            <connections>
-                                <segue destination="byM-ME-jez" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToParcelListWithSegue:" id="uPn-U3-GXe"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="i52-Tk-W3j">
+                    <navigationItem key="navigationItem" title="New Parcel" largeTitleDisplayMode="never" id="QFF-t5-pD6">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="i52-Tk-W3j">
                             <connections>
                                 <segue destination="byM-ME-jez" kind="unwind" identifier="saveUnwind" unwindAction="unwindToParcelListWithSegue:" id="scs-PW-htD"/>
                             </connections>
@@ -315,6 +310,8 @@
                         <outlet property="statusLastUpdateLabel" destination="Szg-qM-CW9" id="KUT-xG-inb"/>
                         <outlet property="statusTextField" destination="TrO-h9-ECz" id="DSD-Bh-9YV"/>
                         <outlet property="trackingNumberTextField" destination="hrF-17-sbD" id="33v-g4-boy"/>
+                        <segue destination="byM-ME-jez" kind="unwind" identifier="deleteUnwind" unwindAction="unwindToParcelListWithSegue:" id="teq-AZ-d0m"/>
+                        <segue destination="byM-ME-jez" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToParcelListWithSegue:" id="hjm-x1-7F6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8y-hb-y8F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -63,6 +63,10 @@ class ParcelDetailTableViewController: UITableViewController {
         deliveryDatePicker.date = deliveryDate
       }
       notesTextView.text = parcel.notes
+      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped))
+      navigationItem.title = "Edit Parcel"
+    } else {
+      navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
     }
 
     updateSaveButtonState()
@@ -130,6 +134,23 @@ class ParcelDetailTableViewController: UITableViewController {
       tackingNumber: trackingNumberTextField.text,
       deliveryDateAndTime: deliveryDateHasBeenSet ? deliveryDatePicker.date : nil,
       notes: notesTextView.text)
+  }
+
+  @objc private func cancelTapped(_ sender: Any) {
+    performSegue(withIdentifier: "cancelUnwind", sender: sender)
+  }
+
+  @objc private func deleteTapped(_ sender: Any) {
+    let message = "Are you sure you want to permanently delete this parcel?"
+    let alertController = UIAlertController(title: "Delete Parcel", message: message, preferredStyle: .alert)
+    let deleteAction = UIAlertAction(title: "Delete", style: .default) { _ in
+      self.performSegue(withIdentifier: "deleteUnwind", sender: sender)
+    }
+    deleteAction.setValue(UIColor.red, forKey: "titleTextColor")
+    alertController.addAction(deleteAction)
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+    self.present(alertController, animated: true, completion: nil)
   }
 
   private func updateSaveButtonState() {
