@@ -98,17 +98,22 @@ class ParcelListTableViewController: UITableViewController {
 
   // MARK: - IBActions
   @IBAction func unwindToParcelList(segue: UIStoryboardSegue) {
-    guard segue.identifier == "saveUnwind" else { return }
+    guard segue.identifier == "saveUnwind" || segue.identifier == "deleteUnwind" else { return }
     let sourceViewController = segue.source as! ParcelDetailTableViewController
 
     if let parcel = sourceViewController.parcel {
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        parcels[selectedIndexPath.row] = parcel
-        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        if segue.identifier == "saveUnwind" {
+          parcels[selectedIndexPath.row] = parcel
+          tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else if segue.identifier == "deleteUnwind" {
+          parcels.remove(at: selectedIndexPath.row)
+          tableView.deleteRows(at: [selectedIndexPath], with: .none)
+        }
       } else {
-      let newIndexPath =  IndexPath(row: parcels.count, section: 0)
-      parcels.append(parcel)
-      tableView.insertRows(at: [newIndexPath], with: .automatic)
+        let newIndexPath =  IndexPath(row: parcels.count, section: 0)
+        parcels.append(parcel)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
       }
     }
   }
