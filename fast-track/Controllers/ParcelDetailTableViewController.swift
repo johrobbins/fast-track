@@ -31,12 +31,12 @@ class ParcelDetailTableViewController: UITableViewController {
 
   var parcel: Parcel?
 
-  private var statusLastUpdate: Date?
+  private var statusLastUpdateHasBeenSet = false
   private var isStatusLastUpdateDatePickerHidden = true
   private let statusLastUpdateLabelIndexPath = IndexPath(row: 1, section: 1)
   private let statusLastUpdateDatePickerIndexPath = IndexPath(row: 2, section: 1)
 
-  private var deliveryDate: Date?
+  private var deliveryDateHasBeenSet = false
   private var isDeliveryDatePickerHidden = true
   private let deliveryDateLabelIndexPath = IndexPath(row: 1, section: 2)
   private let deliveryDatePickerIndexPath = IndexPath(row: 2, section: 2)
@@ -48,6 +48,23 @@ class ParcelDetailTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    if let parcel = parcel {
+      recipientNameTextField.text = parcel.recipientName
+      recipientAddressTextField.text = parcel.deliveryAddress
+      statusTextField.text = parcel.status
+      updateDatePickerLabel(label: statusLastUpdateLabel, date: parcel.statusLastUpdate)
+      statusLastUpdateHasBeenSet = true
+      statusLastUpdateDatePicker.date = parcel.statusLastUpdate
+      trackingNumberTextField.text = parcel.tackingNumber
+      if let deliveryDate = parcel.deliveryDateAndTime {
+        updateDatePickerLabel(label: deliveryDateLabel, date: deliveryDate)
+        deliveryDateHasBeenSet = true
+        deliveryDatePicker.date = deliveryDate
+      }
+      notesTextView.text = parcel.notes
+    }
+
     updateSaveButtonState()
   }
 
@@ -61,15 +78,13 @@ class ParcelDetailTableViewController: UITableViewController {
   }
 
   @IBAction func statusLastUpdateDatePickerChanged(_ sender: UIDatePicker) {
+    statusLastUpdateHasBeenSet = true
     updateDatePickerLabel(label: statusLastUpdateLabel, date: statusLastUpdateDatePicker.date)
-    statusLastUpdate = statusLastUpdateDatePicker.date
-    updateSaveButtonState()
   }
 
   @IBAction func deliveryDatePickerChanged(_ sender: UIDatePicker) {
+    deliveryDateHasBeenSet = true
     updateDatePickerLabel(label: deliveryDateLabel, date: deliveryDatePicker.date)
-    deliveryDate = deliveryDatePicker.date
-    updateSaveButtonState()
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,9 +126,9 @@ class ParcelDetailTableViewController: UITableViewController {
       recipientName: recipientNameTextField.text!,
       deliveryAddress: recipientAddressTextField.text!,
       status: statusTextField.text!,
-      statusLastUpdate: statusLastUpdate!,
+      statusLastUpdate: statusLastUpdateDatePicker.date,
       tackingNumber: trackingNumberTextField.text,
-      deliveryDateAndTime: deliveryDate,
+      deliveryDateAndTime: deliveryDateHasBeenSet ? deliveryDatePicker.date : nil,
       notes: notesTextView.text)
   }
 
@@ -121,14 +136,14 @@ class ParcelDetailTableViewController: UITableViewController {
     let recipientName = recipientNameTextField.text ?? ""
     let recipientAddress = recipientAddressTextField.text ?? ""
     let parcelStatus = statusTextField.text ?? ""
-    let statusLastUpdateIsEmpty = statusLastUpdate == nil ? false : true
 
-    saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty && statusLastUpdateIsEmpty
+    saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty && statusLastUpdateHasBeenSet
   }
 
   private func updateDatePickerLabel(label: UILabel, date: Date) {
     label.text = Parcel.dateFormatter.string(from: date)
     label.font = label.font.withSize(16)
+    updateSaveButtonState()
   }
 
   private func updateDatePickerCell(label: UILabel, with isCellHidden: Bool) {

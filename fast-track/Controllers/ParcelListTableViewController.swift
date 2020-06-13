@@ -102,9 +102,14 @@ class ParcelListTableViewController: UITableViewController {
     let sourceViewController = segue.source as! ParcelDetailTableViewController
 
     if let parcel = sourceViewController.parcel {
+      if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        parcels[selectedIndexPath.row] = parcel
+        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+      } else {
       let newIndexPath =  IndexPath(row: parcels.count, section: 0)
       parcels.append(parcel)
       tableView.insertRows(at: [newIndexPath], with: .automatic)
+      }
     }
   }
 }
