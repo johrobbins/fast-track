@@ -123,8 +123,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="next" textContentType="name"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="WhX-5b-eOU"/>
-                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="LQf-jD-WoL"/>
+                                                        <action selector="textEditingChangedOnMandatoryField:" destination="deV-De-Uiv" eventType="editingChanged" id="WhX-5b-eOU"/>
                                                         <outlet property="delegate" destination="deV-De-Uiv" id="yy3-FH-MF2"/>
                                                     </connections>
                                                 </textField>
@@ -150,8 +149,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="next" textContentType="street-address"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="nPe-ky-Zrn"/>
-                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="TZc-Sx-eLQ"/>
+                                                        <action selector="textEditingChangedOnMandatoryField:" destination="deV-De-Uiv" eventType="editingChanged" id="nPe-ky-Zrn"/>
                                                         <outlet property="delegate" destination="deV-De-Uiv" id="njI-Oh-X4y"/>
                                                     </connections>
                                                 </textField>
@@ -181,7 +179,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet" returnKeyType="next"/>
                                                     <connections>
-                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="OWb-Hx-Zik"/>
                                                         <outlet property="delegate" destination="deV-De-Uiv" id="qtb-wR-cyB"/>
                                                     </connections>
                                                 </textField>
@@ -211,8 +208,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet" returnKeyType="next"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="kzv-e9-lq3"/>
-                                                        <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="fRg-UJ-eZ8"/>
+                                                        <action selector="textEditingChangedOnMandatoryField:" destination="deV-De-Uiv" eventType="editingChanged" id="kzv-e9-lq3"/>
                                                         <outlet property="delegate" destination="deV-De-Uiv" id="TBn-Ko-pvi"/>
                                                     </connections>
                                                 </textField>
@@ -332,6 +328,9 @@
                                                     <color key="textColor" name="TextHighEmphasis"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="deV-De-Uiv" id="gps-o6-JEC"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>

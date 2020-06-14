@@ -5,7 +5,7 @@
 
 import UIKit
 
-class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegate {
+class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
   // Navigation
   @IBOutlet private var saveButton: UIBarButtonItem!
 
@@ -70,12 +70,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   // MARK: - IBAction
 
-  @IBAction func textEditingDidBegin(_ sender: UITextField) {
-    hideStatusLastUpdateDatePickerIfRevelaed()
-    hideDeliveryDatePickerIfRevelaed()
-  }
-
-  @IBAction func textEditingChanged(_ sender: UITextField) {
+  @IBAction func textEditingChangedOnMandatoryField(_ sender: UITextField) {
     updateSaveButtonState()
   }
 
@@ -145,6 +140,12 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   // MARK: - UITextFieldDelegate
 
+  // Hide date pickers if presented
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    hideStatusLastUpdateDatePickerIfRevelaed()
+    hideDeliveryDatePickerIfRevelaed()
+  }
+  
   // Handle text field keyboard focus
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
@@ -185,6 +186,14 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     }
 
     return count <= maxCharacters
+  }
+
+  // MARK: - UITextViewDelegate
+
+  // Hide date pickers if presented
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    hideStatusLastUpdateDatePickerIfRevelaed()
+    hideDeliveryDatePickerIfRevelaed()
   }
 
   // MARK: - Private Functions
