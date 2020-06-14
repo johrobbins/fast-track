@@ -110,10 +110,16 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
     switch indexPath {
     case statusLastUpdateLabelIndexPath:
+      // Dismiss keyboard if presented
+      self.view.endEditing(true)
+
       hideDeliveryDatePickerIfRevelaed()
       isStatusLastUpdateDatePickerHidden = !isStatusLastUpdateDatePickerHidden
       updateDatePickerCell(label: statusLastUpdateLabel, with: isStatusLastUpdateDatePickerHidden)
     case deliveryDateLabelIndexPath:
+      // Dismiss keyboard if presented
+      self.view.endEditing(true)
+
       hideStatusLastUpdateDatePickerIfRevelaed()
       isDeliveryDatePickerHidden = !isDeliveryDatePickerHidden
       updateDatePickerCell(label: deliveryDateLabel, with: isDeliveryDatePickerHidden)
