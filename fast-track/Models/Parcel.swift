@@ -14,8 +14,20 @@ struct Parcel: Codable {
   var deliveryDateAndTime: Date?
   var notes: String?
 
+  static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+  static let ArchiveURL = DocumentsDirectory.appendingPathComponent("parcels").appendingPathExtension("plist")
+
   static func loadParcels() -> [Parcel]? {
-    return nil
+    guard let codedParcel = try? Data(contentsOf: ArchiveURL) else { return nil }
+    let propertyListDecoder = PropertyListDecoder()
+
+    return try? propertyListDecoder.decode(Array<Parcel>.self, from: codedParcel)
+  }
+
+  static func saveParcels(_ parcels: [Parcel]) {
+    let propertyListEncoder = PropertyListEncoder()
+    let codedParcels = try? propertyListEncoder.encode(parcels)
+    try? codedParcels?.write(to: ArchiveURL, options: .noFileProtection)
   }
 
   static func loadSampleParcels() -> [Parcel] {
