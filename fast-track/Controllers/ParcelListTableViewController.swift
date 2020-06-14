@@ -39,10 +39,10 @@ class ParcelListTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ParcelCell", for: indexPath)
-
+    let cell: ParcelTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ParcelCell", for: indexPath) as! ParcelTableViewCell
     let parcel = parcels[indexPath.row]
-    cell.textLabel?.text = parcel.recipientName
+
+    cell.update(with: parcel)
 
     return cell
   }
