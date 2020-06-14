@@ -64,6 +64,7 @@ class ParcelDetailTableViewController: UITableViewController {
       }
       notesTextView.text = parcel.notes
       navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped))
+      navigationItem.leftBarButtonItem?.tintColor = .red
       navigationItem.title = "Edit Parcel"
     } else {
       navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
