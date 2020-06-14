@@ -80,14 +80,12 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
   }
 
   @IBAction func statusLastUpdateDatePickerChanged(_ sender: UIDatePicker) {
-    statusLastUpdateLabel.text = Parcel.dateFormatter.string(from: statusLastUpdateDatePicker.date)
-    statusLastUpdateLabel.isEnabled = true
+    updateDatePickerLabel(with: statusLastUpdateLabel, date: statusLastUpdateDatePicker.date)
     updateSaveButtonState()
   }
 
   @IBAction func deliveryDatePickerChanged(_ sender: UIDatePicker) {
-    deliveryDateLabel.text = Parcel.dateFormatter.string(from: deliveryDatePicker.date)
-    deliveryDateLabel.isEnabled = true
+    updateDatePickerLabel(with: deliveryDateLabel, date: deliveryDatePicker.date)
   }
 
   // MARK: - Table View Functions
@@ -147,6 +145,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   // MARK: - UITextFieldDelegate
 
+  // Handle text field keyboard focus
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
 
@@ -166,6 +165,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     return true
   }
 
+  // Handle max character limit for text fields
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     guard let textFieldText = textField.text, let rangeOfTextToReplace = Range(range, in: textFieldText) else {
       return false
