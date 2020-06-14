@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,7 +12,7 @@
             <objects>
                 <tableViewController id="Ky3-PH-KX5" customClass="ParcelListTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Efj-B0-6P9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -84,6 +85,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Parcels" id="DDH-dZ-flq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c0Y-If-KPb">
+                            <color key="tintColor" name="PrimaryOverlay"/>
                             <connections>
                                 <segue destination="bbJ-ge-4o4" kind="presentation" identifier="AddParcel" modalPresentationStyle="fullScreen" id="5xe-lP-hLM"/>
                             </connections>
@@ -99,7 +101,7 @@
             <objects>
                 <tableViewController id="deV-De-Uiv" customClass="ParcelDetailTableViewController" customModule="Fast_Track" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="X3i-QI-Vgv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -367,9 +369,12 @@
         <scene sceneID="rmR-md-na3">
             <objects>
                 <navigationController id="bbJ-ge-4o4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="42t-6o-p7r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="42t-6o-p7r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="deV-De-Uiv" kind="relationship" relationship="rootViewController" id="pHE-qT-YNM"/>
@@ -383,9 +388,14 @@
         <scene sceneID="Q7v-bt-brH">
             <objects>
                 <navigationController id="KeF-eM-jmm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JQk-bV-224">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="JQk-bV-224">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Primary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" name="PrimaryOverlay"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Ky3-PH-KX5" kind="relationship" relationship="rootViewController" id="iX2-0z-PbU"/>
@@ -395,8 +405,27 @@
             </objects>
             <point key="canvasLocation" x="-1443" y="692"/>
         </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="9ok-rb-2z7">
+            <objects>
+                <viewControllerPlaceholder id="3Ab-Dt-Bzo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-pm-VK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1444" y="1025"/>
+        </scene>
     </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="1" green="0.5690000057220459" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryOverlay">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryOverlay">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p7i-of-Aw8"/>
+        <segue reference="5xe-lP-hLM"/>
     </inferredMetricsTieBreakers>
 </document>
