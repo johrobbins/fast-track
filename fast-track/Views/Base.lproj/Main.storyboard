@@ -35,7 +35,7 @@
                                                             <color key="textColor" name="TextHighEmphasis"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57 High St, Richmond, VIC 3121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-4n-8qO">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57 High St, Richmond, VIC 3121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-4n-8qO">
                                                             <rect key="frame" x="0.0" y="25.5" width="229.5" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" name="TextMediumEmphasis"/>
@@ -347,7 +347,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Parcel" largeTitleDisplayMode="never" id="QFF-t5-pD6">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="i52-Tk-W3j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="i52-Tk-W3j">
                             <color key="tintColor" name="PrimaryOverlay"/>
                             <connections>
                                 <segue destination="byM-ME-jez" kind="unwind" identifier="saveUnwind" unwindAction="unwindToParcelListWithSegue:" id="scs-PW-htD"/>
@@ -416,14 +416,6 @@
             </objects>
             <point key="canvasLocation" x="-1443" y="692"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="9ok-rb-2z7">
-            <objects>
-                <viewControllerPlaceholder id="3Ab-Dt-Bzo" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-pm-VK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1444" y="1025"/>
-        </scene>
     </scenes>
     <resources>
         <namedColor name="Primary">
@@ -439,10 +431,10 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextLowEmphasis">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextMediumEmphasis">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
