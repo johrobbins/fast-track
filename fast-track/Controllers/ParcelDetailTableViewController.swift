@@ -30,13 +30,13 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   private var statusLastUpdateHasBeenSet = false
   private var isStatusLastUpdateDatePickerHidden = true
-  private let statusLastUpdateLabelIndexPath = IndexPath(row: 1, section: 1)
-  private let statusLastUpdateDatePickerIndexPath = IndexPath(row: 2, section: 1)
+  private let statusLastUpdateLabelIndexPath = IndexPath(row: 1, section: 2)
+  private let statusLastUpdateDatePickerIndexPath = IndexPath(row: 2, section: 2)
 
   private var deliveryDateHasBeenSet = false
   private var isDeliveryDatePickerHidden = true
-  private let deliveryDateLabelIndexPath = IndexPath(row: 1, section: 2)
-  private let deliveryDatePickerIndexPath = IndexPath(row: 2, section: 2)
+  private let deliveryDateLabelIndexPath = IndexPath(row: 3, section: 2)
+  private let deliveryDatePickerIndexPath = IndexPath(row: 4, section: 2)
 
   private let notesTextViewIndexPath = IndexPath(row: 0, section: 3)
 
@@ -50,15 +50,17 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
       recipientNameTextField.text = parcel.recipientName
       recipientAddressTextField.text = parcel.deliveryAddress
       statusTextField.text = parcel.status
-      updateDatePickerLabel(label: statusLastUpdateLabel, date: parcel.statusLastUpdate)
+      statusLastUpdateLabel.text = Parcel.dateFormatter.string(from: parcel.statusLastUpdate)
       statusLastUpdateHasBeenSet = true
       statusLastUpdateDatePicker.date = parcel.statusLastUpdate
       trackingNumberTextField.text = parcel.tackingNumber
+
       if let deliveryDate = parcel.deliveryDateAndTime {
-        updateDatePickerLabel(label: deliveryDateLabel, date: deliveryDate)
+        deliveryDateLabel.text = Parcel.dateFormatter.string(from: deliveryDate)
         deliveryDateHasBeenSet = true
         deliveryDatePicker.date = deliveryDate
       }
+      
       notesTextView.text = parcel.notes
       navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped))
       navigationItem.title = "Edit Parcel"
@@ -80,13 +82,14 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
   }
 
   @IBAction func statusLastUpdateDatePickerChanged(_ sender: UIDatePicker) {
+    statusLastUpdateLabel.text = Parcel.dateFormatter.string(from: statusLastUpdateDatePicker.date)
     statusLastUpdateHasBeenSet = true
-    updateDatePickerLabel(label: statusLastUpdateLabel, date: statusLastUpdateDatePicker.date)
+    updateSaveButtonState()
   }
 
   @IBAction func deliveryDatePickerChanged(_ sender: UIDatePicker) {
+    deliveryDateLabel.text = Parcel.dateFormatter.string(from: deliveryDatePicker.date)
     deliveryDateHasBeenSet = true
-    updateDatePickerLabel(label: deliveryDateLabel, date: deliveryDatePicker.date)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -136,15 +139,21 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     if textField == recipientNameTextField {
-       textField.resignFirstResponder()
-       recipientAddressTextField.becomeFirstResponder()
+      textField.resignFirstResponder()
+      recipientAddressTextField.becomeFirstResponder()
     } else if textField == recipientAddressTextField {
-       textField.resignFirstResponder()
-       statusTextField.becomeFirstResponder()
+      textField.resignFirstResponder()
+      trackingNumberTextField.becomeFirstResponder()
+    } else if textField == trackingNumberTextField {
+      textField.resignFirstResponder()
+      statusTextField.becomeFirstResponder()
     } else if textField == statusTextField {
-       textField.resignFirstResponder()
+      textField.resignFirstResponder()
+//      isStatusLastUpdateDatePickerHidden = false
+//      tableView.beginUpdates()
+//      tableView.endUpdates()
     }
-   return true
+    return true
   }
 
   @objc private func cancelTapped(_ sender: Any) {
@@ -171,15 +180,9 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
     saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty && statusLastUpdateHasBeenSet
   }
-
-  private func updateDatePickerLabel(label: UILabel, date: Date) {
-    label.text = Parcel.dateFormatter.string(from: date)
-    label.font = label.font.withSize(16)
-    updateSaveButtonState()
-  }
-
+  
   private func updateDatePickerCell(label: UILabel, with isCellHidden: Bool) {
-    label.textColor = isCellHidden ? .darkGray : tableView.tintColor
+    label.textColor = isCellHidden ? UIColor(named: "TextMediumEmphasis") : tableView.tintColor
     tableView.beginUpdates()
     tableView.endUpdates()
   }
