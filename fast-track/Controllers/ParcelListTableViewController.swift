@@ -16,16 +16,6 @@ class ParcelListTableViewController: UITableViewController {
     } else {
       parcels = Parcel.loadSampleParcels()
     }
-
-    // Enable for editing rows e.g delete
-    //navigationItem.leftBarButtonItem = editButtonItem
-
-
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
   }
 
   // MARK: - Table view data source
@@ -58,31 +48,6 @@ class ParcelListTableViewController: UITableViewController {
         Parcel.saveParcels(parcels)
       }
   }
-
-  /*
-  // Override to support rearranging the table view.
-  override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-  }
-  */
-
-  /*
-  // Override to support conditional rearranging of the table view.
-  override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-      // Return false if you do not want the item to be re-orderable.
-      return true
-  }
-  */
-
-  /*
-  // MARK: - Navigation
-
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destination.
-      // Pass the selected object to the new view controller.
-  }
-  */
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "EditParcel",

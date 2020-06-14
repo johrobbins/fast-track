@@ -23,50 +23,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iWw-R7-hzz" userLabel="HorizontalStackView">
-                                            <rect key="frame" x="14" y="8" width="386" height="52"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iWw-R7-hzz" userLabel="HorizontalStackView">
+                                            <rect key="frame" x="12" y="8" width="390" height="52"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ovw-be-teI" userLabel="Left Stack View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="307.5" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="52"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psp-kW-hJn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="101.5" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="93.5" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                             <color key="textColor" name="TextHighEmphasis"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57 High St, Richmond, VIC 3121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-4n-8qO">
-                                                            <rect key="frame" x="0.0" y="28" width="256" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <color key="textColor" name="TextMediumEmphasis"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2et-07-yB9" userLabel="Right Stack View">
-                                                    <rect key="frame" x="317.5" y="0.0" width="68.5" height="52"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXG-7i-kyq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                            <color key="textColor" name="TextLowEmphasis"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzd-jg-38J">
-                                                            <rect key="frame" x="0.0" y="24" width="68.5" height="28"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57 High St, Richmond, VIC 3121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-4n-8qO">
+                                                            <rect key="frame" x="0.0" y="25.5" width="229.5" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" name="TextMediumEmphasis"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2et-07-yB9" userLabel="Right Stack View">
+                                                    <rect key="frame" x="312" y="0.0" width="78" height="52"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXG-7i-kyq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="78" height="24.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                            <color key="textColor" name="TextLowEmphasis"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivered" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzd-jg-38J">
+                                                            <rect key="frame" x="0.0" y="24.5" width="78" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" name="TextMediumEmphasis"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="78" id="kee-N4-mJM"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="iWw-R7-hzz" secondAttribute="trailing" constant="14" id="3I7-bh-uqe"/>
+                                        <constraint firstAttribute="trailing" secondItem="iWw-R7-hzz" secondAttribute="trailing" constant="12" id="3I7-bh-uqe"/>
                                         <constraint firstAttribute="bottom" secondItem="iWw-R7-hzz" secondAttribute="bottom" constant="8" id="aQs-4f-2Um"/>
-                                        <constraint firstItem="iWw-R7-hzz" firstAttribute="leading" secondItem="7eF-eN-SBJ" secondAttribute="leading" constant="14" id="oSx-7T-LQc"/>
+                                        <constraint firstItem="iWw-R7-hzz" firstAttribute="leading" secondItem="7eF-eN-SBJ" secondAttribute="leading" constant="12" id="oSx-7T-LQc"/>
                                         <constraint firstItem="iWw-R7-hzz" firstAttribute="top" secondItem="7eF-eN-SBJ" secondAttribute="top" constant="8" id="zlg-mZ-Ecu"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -232,11 +235,11 @@
                                                     <color key="textColor" name="TextHighEmphasis"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Not Set" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Szg-qM-CW9">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Not Set" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="Szg-qM-CW9">
                                                     <rect key="frame" x="332.5" y="11" width="61.5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" name="TextLowEmphasis"/>
+                                                    <color key="textColor" name="TextMediumEmphasis"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -277,11 +280,11 @@
                                                     <color key="textColor" name="TextHighEmphasis"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Not Set" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69L-hx-ISB">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Not Set" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="69L-hx-ISB">
                                                     <rect key="frame" x="332.5" y="11" width="61.5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" name="TextLowEmphasis"/>
+                                                    <color key="textColor" name="TextMediumEmphasis"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

@@ -32,21 +32,21 @@ struct Parcel: Codable {
 
   static func loadSampleParcels() -> [Parcel] {
     let parcel1 = Parcel(
-      recipientName: "John Smith",
+      recipientName: "Jane Smith",
       deliveryAddress: "37 Main Street, Norwood, SA",
-      status: "On Route",
-      statusLastUpdate: Date(),
-      tackingNumber: "FT123",
-      deliveryDateAndTime: Date(),
+      status: "Dispatched",
+      statusLastUpdate: dateFormatter.date(from: "15/06/20, 10:00 AM")!,
+      tackingNumber: "FT82342918",
+      deliveryDateAndTime: nil,
       notes: "Leave behind side gate")
 
     let parcel2 = Parcel(
       recipientName: "Mike Jones",
       deliveryAddress: "88 George Street, Gold Coast, QLD",
       status: "Delivered",
-      statusLastUpdate: Date(),
-      tackingNumber: "FT234",
-      deliveryDateAndTime: Date(),
+      statusLastUpdate: dateFormatter.date(from: "07/06/20, 01:15 PM")!,
+      tackingNumber: "FT23412386",
+      deliveryDateAndTime: dateFormatter.date(from: "15/06/20, 09:45 AM")!,
       notes: "")
 
     return [parcel1, parcel2]
@@ -58,9 +58,3 @@ struct Parcel: Codable {
     return formatter
   }()
 }
-
-//enum DeliveryStatus: String, Codable {
-//  case delivered
-//  case onRoute
-//  case none
-//}
