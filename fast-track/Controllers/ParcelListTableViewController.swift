@@ -18,7 +18,7 @@ class ParcelListTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - Table view data source
+  // MARK: - Table View Functions
 
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -33,7 +33,6 @@ class ParcelListTableViewController: UITableViewController {
     let parcel = parcels[indexPath.row]
 
     cell.update(with: parcel)
-
     return cell
   }
 
@@ -49,6 +48,8 @@ class ParcelListTableViewController: UITableViewController {
       }
   }
 
+  // MARK: - Segue Handler
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "EditParcel",
     let navController = segue.destination as? UINavigationController,
@@ -60,7 +61,6 @@ class ParcelListTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - IBActions
   @IBAction func unwindToParcelList(segue: UIStoryboardSegue) {
     guard segue.identifier == "saveUnwind" || segue.identifier == "deleteUnwind" else { return }
     let sourceViewController = segue.source as! ParcelDetailTableViewController

@@ -45,8 +45,8 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     super.viewDidLoad()
 
     if let parcel = parcel {
-      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped))
       navigationItem.title = "Edit Parcel"
+      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteTapped))
 
       recipientNameTextField.text = parcel.recipientName
       recipientDeliveryAddressTextField.text = parcel.deliveryAddress
@@ -68,7 +68,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     updateSaveButtonState()
   }
 
-
+  // MARK: - IBAction
 
   @IBAction func textEditingDidBegin(_ sender: UITextField) {
     hideStatusLastUpdateDatePickerIfRevelaed()
@@ -89,6 +89,8 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     deliveryDateLabel.text = Parcel.dateFormatter.string(from: deliveryDatePicker.date)
     deliveryDateLabel.isEnabled = true
   }
+
+  // MARK: - Table View Functions
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath {
@@ -120,6 +122,8 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     }
   }
 
+  // MARK: - Segue Handler
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
 
@@ -135,7 +139,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
       notes: notesTextView.text)
   }
 
-  // MARK: UITextFieldDelegate
+  // MARK: - UITextFieldDelegate
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
@@ -177,7 +181,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
     return count <= maxCharacters
   }
 
-  // MARK: Private Functions
+  // MARK: - Private Functions
 
   @objc private func cancelTapped(_ sender: Any) {
     performSegue(withIdentifier: "cancelUnwind", sender: sender)
