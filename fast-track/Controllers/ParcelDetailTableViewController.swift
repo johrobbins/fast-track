@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParcelDetailTableViewController: UITableViewController {
+class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegate {
   // Navigation
   @IBOutlet private var saveButton: UIBarButtonItem!
 
@@ -135,6 +135,19 @@ class ParcelDetailTableViewController: UITableViewController {
       tackingNumber: trackingNumberTextField.text,
       deliveryDateAndTime: deliveryDateHasBeenSet ? deliveryDatePicker.date : nil,
       notes: notesTextView.text)
+  }
+
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == recipientNameTextField {
+       textField.resignFirstResponder()
+       recipientAddressTextField.becomeFirstResponder()
+    } else if textField == recipientAddressTextField {
+       textField.resignFirstResponder()
+       statusTextField.becomeFirstResponder()
+    } else if textField == statusTextField {
+       textField.resignFirstResponder()
+    }
+   return true
   }
 
   @objc private func cancelTapped(_ sender: Any) {

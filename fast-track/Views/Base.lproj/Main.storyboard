@@ -78,6 +78,7 @@
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="WhX-5b-eOU"/>
                                                         <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="LQf-jD-WoL"/>
+                                                        <outlet property="delegate" destination="deV-De-Uiv" id="yy3-FH-MF2"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -102,6 +103,7 @@
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="nPe-ky-Zrn"/>
                                                         <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="TZc-Sx-eLQ"/>
+                                                        <outlet property="delegate" destination="deV-De-Uiv" id="njI-Oh-X4y"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -130,6 +132,7 @@
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="deV-De-Uiv" eventType="editingChanged" id="kzv-e9-lq3"/>
                                                         <action selector="textEditingDidBegin:" destination="deV-De-Uiv" eventType="editingDidBegin" id="fRg-UJ-eZ8"/>
+                                                        <outlet property="delegate" destination="deV-De-Uiv" id="TBn-Ko-pvi"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
