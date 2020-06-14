@@ -339,7 +339,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Parcel" largeTitleDisplayMode="never" id="QFF-t5-pD6">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="i52-Tk-W3j">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="i52-Tk-W3j">
+                            <color key="tintColor" name="PrimaryOverlay"/>
                             <connections>
                                 <segue destination="byM-ME-jez" kind="unwind" identifier="saveUnwind" unwindAction="unwindToParcelListWithSegue:" id="scs-PW-htD"/>
                             </connections>
@@ -369,11 +370,13 @@
         <scene sceneID="rmR-md-na3">
             <objects>
                 <navigationController id="bbJ-ge-4o4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="42t-6o-p7r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="42t-6o-p7r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Primary"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" name="PrimaryOverlay"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -417,9 +420,6 @@
     <resources>
         <namedColor name="Primary">
             <color red="1" green="0.5690000057220459" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PrimaryOverlay">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryOverlay">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
