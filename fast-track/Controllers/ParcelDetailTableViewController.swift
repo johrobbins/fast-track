@@ -9,21 +9,21 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
   // Navigation
   @IBOutlet private var saveButton: UIBarButtonItem!
 
-  // Recipient
+  // Section 0: Recipient
   @IBOutlet private var recipientNameTextField: UITextField!
-  @IBOutlet private var recipientAddressTextField: UITextField!
+  @IBOutlet private var recipientDeliveryAddressTextField: UITextField!
 
-  // Parcel Status
+  // Section 1: Tracking Number
+  @IBOutlet private var trackingNumberTextField: UITextField!
+
+  // Section 2: Parcel Status
   @IBOutlet private var statusTextField: UITextField!
   @IBOutlet private var statusLastUpdateLabel: UILabel!
   @IBOutlet private var statusLastUpdateDatePicker: UIDatePicker!
-
-  // Delivery
-  @IBOutlet private var trackingNumberTextField: UITextField!
   @IBOutlet private var deliveryDateLabel: UILabel!
   @IBOutlet private var deliveryDatePicker: UIDatePicker!
 
-  // Notes
+  // Section 3: Notes
   @IBOutlet private var notesTextView: UITextView!
 
   var parcel: Parcel?
@@ -48,7 +48,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
     if let parcel = parcel {
       recipientNameTextField.text = parcel.recipientName
-      recipientAddressTextField.text = parcel.deliveryAddress
+      recipientDeliveryAddressTextField.text = parcel.deliveryAddress
       statusTextField.text = parcel.status
       statusLastUpdateLabel.text = Parcel.dateFormatter.string(from: parcel.statusLastUpdate)
       statusLastUpdateHasBeenSet = true
@@ -129,7 +129,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
     parcel = Parcel(
       recipientName: recipientNameTextField.text!,
-      deliveryAddress: recipientAddressTextField.text!,
+      deliveryAddress: recipientDeliveryAddressTextField.text!,
       status: statusTextField.text!,
       statusLastUpdate: statusLastUpdateDatePicker.date,
       tackingNumber: trackingNumberTextField.text,
@@ -140,8 +140,8 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     if textField == recipientNameTextField {
       textField.resignFirstResponder()
-      recipientAddressTextField.becomeFirstResponder()
-    } else if textField == recipientAddressTextField {
+      recipientDeliveryAddressTextField.becomeFirstResponder()
+    } else if textField == recipientDeliveryAddressTextField {
       textField.resignFirstResponder()
       trackingNumberTextField.becomeFirstResponder()
     } else if textField == trackingNumberTextField {
@@ -149,12 +149,13 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
       statusTextField.becomeFirstResponder()
     } else if textField == statusTextField {
       textField.resignFirstResponder()
-//      isStatusLastUpdateDatePickerHidden = false
-//      tableView.beginUpdates()
-//      tableView.endUpdates()
+      isStatusLastUpdateDatePickerHidden = false
+      updateDatePickerCell(label: statusLastUpdateLabel, with: isStatusLastUpdateDatePickerHidden)
     }
     return true
   }
+
+  // MARK: Private Functions
 
   @objc private func cancelTapped(_ sender: Any) {
     performSegue(withIdentifier: "cancelUnwind", sender: sender)
@@ -175,7 +176,7 @@ class ParcelDetailTableViewController: UITableViewController, UITextFieldDelegat
 
   private func updateSaveButtonState() {
     let recipientName = recipientNameTextField.text ?? ""
-    let recipientAddress = recipientAddressTextField.text ?? ""
+    let recipientAddress = recipientDeliveryAddressTextField.text ?? ""
     let parcelStatus = statusTextField.text ?? ""
 
     saveButton.isEnabled = !recipientName.isEmpty && !recipientAddress.isEmpty && !parcelStatus.isEmpty && statusLastUpdateHasBeenSet

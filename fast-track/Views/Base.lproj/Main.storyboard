@@ -355,7 +355,7 @@
                         <outlet property="deliveryDateLabel" destination="69L-hx-ISB" id="sHG-uj-SW5"/>
                         <outlet property="deliveryDatePicker" destination="QBL-Vm-bA6" id="hIA-Ri-mGr"/>
                         <outlet property="notesTextView" destination="a8t-HN-p9x" id="9qp-Rj-yFO"/>
-                        <outlet property="recipientAddressTextField" destination="JHV-Rv-DlU" id="Mxs-I4-AxS"/>
+                        <outlet property="recipientDeliveryAddressTextField" destination="JHV-Rv-DlU" id="Mxs-I4-AxS"/>
                         <outlet property="recipientNameTextField" destination="mwP-wI-QSX" id="TW4-lo-UGN"/>
                         <outlet property="saveButton" destination="i52-Tk-W3j" id="0g2-Y6-weP"/>
                         <outlet property="statusLastUpdateDatePicker" destination="MGp-Un-kxu" id="D34-wf-h3R"/>
